@@ -44,6 +44,8 @@ function LoginForm() {
         };
         
         localStorage.setItem('adminSession', JSON.stringify(sessionData));
+        localStorage.setItem('adminAuthenticated', 'true')
+        console.log(redirectTo, 'redd')
         router.push(redirectTo);
       } else {
         setError(data.error || 'Authentication failed. Please try again.');
