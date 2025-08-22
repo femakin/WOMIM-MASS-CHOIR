@@ -25,7 +25,7 @@ export async function GET() {
 
     // Test members table
     try {
-      const { data: members, error: membersError } = await supabase
+      const {  error: membersError } = await supabase
         .from('members')
         .select('count')
         .limit(1);
@@ -41,7 +41,7 @@ export async function GET() {
 
     // Test events table
     try {
-      const { data: events, error: eventsError } = await supabase
+      const { error: eventsError } = await supabase
         .from('events')
         .select('count')
         .limit(1);
@@ -68,6 +68,7 @@ export async function GET() {
         }
       } catch (e) {
         // Ignore this error
+        console.log(e)
       }
     }
 

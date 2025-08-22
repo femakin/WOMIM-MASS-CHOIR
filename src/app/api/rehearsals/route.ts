@@ -63,10 +63,16 @@ export async function GET() {
   try {
     const rehearsals = await db.getRehearsals(); // calls your view rehearsal_details
     return NextResponse.json(rehearsals, { status: 200 });
-  } catch (error: any) {
-    console.error('Get Rehearsals API error:', error);
+  } catch (error: unknown) {
+    console.error("Get Rehearsals API error:", error);
+
+    let message = "Internal Server Error";
+    if (error instanceof Error) {
+      message = error.message;
+    }
+
     return NextResponse.json(
-      { error: error.message || 'Internal Server Error' },
+      { error: message },
       { status: 500 }
     );
   }

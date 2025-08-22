@@ -49,6 +49,7 @@ function LoginForm() {
         setError(data.error || 'Authentication failed. Please try again.');
       }
     } catch (error) {
+      console.log(error)
       setError('Network error. Please check your connection and try again.');
     } finally {
       setIsLoading(false);

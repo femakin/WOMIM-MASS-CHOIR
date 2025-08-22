@@ -120,8 +120,8 @@ export default function MultiStepRegistrationForm() {
       } else {
         setMessage({ type: 'error', text: data.error || 'Registration failed. Please try again.' });
       }
-    } catch (_error) {
-      setMessage({ type: 'error', text: 'Network error. Please check your connection and try again.' });
+    } catch (error) {
+      setMessage({ type: 'error', text: `Network error. Please check your connection and try again. ${error}` });
     } finally {
       setIsSubmitting(false);
     }
